@@ -1,0 +1,15 @@
+server:
+  port: 8082
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: firstServiceModule
+          uri: http://localhost:8080/
+          predicates:
+            - Path=/firstService/**
+        - id: secondServiceModule
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/secondService/**
